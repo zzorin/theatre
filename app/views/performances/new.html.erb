@@ -2,6 +2,12 @@
   <%= f.label :title %>
   <%= f.text_field :title %>
   <%= f.label :show_dates %>
-  <%= f.text_field :show_dates %>
+  <%= f.fields :show_dates, model: f.object.show_dates do |sd_field| %>
+    <%= sd_field.label :start_date %>
+    <%= sd_field.date_field :start_date %>
+    <%= sd_field.label :end_date %>
+    <%= sd_field.date_field :end_date %>
+  <% end %>
+
   <%= f.submit 'Create'%>
 <% end %>

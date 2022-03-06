@@ -26,7 +26,7 @@ class PerformancesController < ApplicationController
   private
 
   def performance_params
-    params.require(:performance).permit(:title, :show_dates)
+    params.require(:performance).permit(:title, show_dates: [:start_date, :end_date])
   end
 
   def performance

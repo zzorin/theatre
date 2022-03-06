@@ -8,7 +8,11 @@ class DateRange
   end
 
   def sanitize_string(values)
-    values.delete("()").split(',').map(&:to_date)
+    if values.is_a?(String)
+      values.delete("()").split(',').map(&:to_date)
+    else
+      values.values
+    end
   end
 
   def to_s
