@@ -1,3 +1,9 @@
+<% if @performance.errors.full_messages.any? %>
+  <% @performance.errors.full_messages.each do |error_message| %>
+    <%= error_message %> <br />
+  <% end %>
+<% end %>
+
 <%= form_for @performance do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title, required: true %>

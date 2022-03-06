@@ -11,7 +11,7 @@ class DateRange
     if values.is_a?(String)
       values.delete("()").split(',').map(&:to_date)
     else
-      values.values
+      values.values.map(&:to_date)
     end
   end
 

@@ -18,7 +18,7 @@ class PerformancesController < ApplicationController
 
   def destroy
     Performance.find(params[:id]).destroy
-    redirect_to performances_url, notice: "Performance deleted!"
+    redirect_to performances_url
   end
 
   private
