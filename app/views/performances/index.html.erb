@@ -1,4 +1,4 @@
-<div class="">
+<div>
   <%= link_to 'New', new_performance_path%>
 </div>
 
@@ -7,13 +7,14 @@
     <tr>
       <th>Title</th>
       <th>Start date</th>
+      <th></th>
     </tr>
   </thead>
 
   <tbody>
     <% @performances.each do |performance| %>
       <tr>
-        <td><%=link_to performance.title, performance%></td>
+        <td><%=performance.title%></td>
         <td><%=performance.show_dates%></td>
         <td><%=link_to "delete", performance, method: :delete%></td>
       </tr>

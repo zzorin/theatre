@@ -7,9 +7,6 @@ class PerformancesController < ApplicationController
     @performance = Performance.new
   end
 
-  def show
-  end
-
   def create
     if Performance.new(performance_params).save
       redirect_to performances_path, notice: "Performance created!"
