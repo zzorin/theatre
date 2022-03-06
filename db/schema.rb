@@ -15,12 +15,7 @@ ActiveRecord::Schema.define(version: 2022_03_04_172948) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "performances", force: :cascade do |t|
-    t.string "title", null: false
-    t.date "start_date", null: false
-    t.interval "duration", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
+# Could not dump table "performances" because of following StandardError
+#   Unknown type 'date_range' for column 'show_dates'
 
 end

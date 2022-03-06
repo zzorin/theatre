@@ -1,1 +1,22 @@
-index
+<div class="">
+  <%= link_to 'New', new_performance_path%>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Start date</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @performances.each do |performance| %>
+      <tr>
+        <td><%=link_to performance.title, performance%></td>
+        <td><%=performance.show_dates%></td>
+        <td><%=link_to "delete", performance, method: :delete%></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
