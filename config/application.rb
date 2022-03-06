@@ -9,6 +9,7 @@ Bundler.require(*Rails.groups)
 module Theatre
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
+    config.active_record.schema_format = :sql
     config.load_defaults 6.1
     config.autoload_paths << Rails.root.join('lib')
 
