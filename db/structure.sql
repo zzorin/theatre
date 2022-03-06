@@ -122,12 +122,20 @@ ALTER TABLE ONLY public.schema_migrations
 
 
 --
+-- Name: performance_show_dates_index; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX performance_show_dates_index ON public.performances USING btree (((show_dates).start_date), ((show_dates).end_date));
+
+
+--
 -- PostgreSQL database dump complete
 --
 
 SET search_path TO "$user", public;
 
 INSERT INTO "schema_migrations" (version) VALUES
-('20220304172948');
+('20220304172948'),
+('20220306211239');
 
 
