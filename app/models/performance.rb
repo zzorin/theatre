@@ -2,14 +2,14 @@ class Performance < ApplicationRecord
   attribute :show_dates, DateRangeType.new
   validates :title, presence: true
   validate :not_empty_dates
-  validate :end_after_start, :if => Proc.new { |obj| obj.dates_valid? }
+  validate :end_after_start, :if => Proc.new { |obj| obj.dates_present? }
   validate :not_overlap
 
   scope :overlaps, ->(start_date, end_date) do
     where "(((show_dates).start_date <= ?) and ((show_dates).end_date >= ?))", end_date, start_date
   end
 
-  def dates_valid?
+  def dates_present?
     show_dates.start_date && show_dates.end_date
   end
 
@@ -20,7 +20,7 @@ class Performance < ApplicationRecord
   private
 
   def not_empty_dates
-    unless dates_valid?
+    unless dates_present?
       errors.add(:show_dates, "Dates can't be blank")
     end
   end
